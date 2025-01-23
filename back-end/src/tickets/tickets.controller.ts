@@ -10,7 +10,8 @@ import { start } from 'repl';
 export class TicketsController {
     @Get()
     getTickets(@Query() filterDto: GetTicketsFilterDto): Promise<TicketDto[]> {
-        const filteredTickets: TicketDto[] = slice(tickets, filterDto.from, filterDto.limit);
-        return Promise.resolve(filteredTickets);
+        const filteredTickets: TicketDto[] = tickets.filter((ticket) => ticket.userType === filterDto.userType); 
+        const resultTickets: TicketDto[] = slice(filteredTickets, filterDto.from, filterDto.from + filterDto.limit);
+        return Promise.resolve(resultTickets);
     }
 }
