@@ -11,7 +11,7 @@
         "type": "node-terminal",
         "cwd": "${workspaceFolder}/back-end",
         "env": {
-            "PORT": "3001"
+            "PORT": "3000"
         }   
     }
     ]
